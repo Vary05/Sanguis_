@@ -63,25 +63,6 @@ public class Main2Activity extends AppCompatActivity {
                                 String f=ob.get(i).toString();
                                 Question q = gson.fromJson(f, Question.class);
                                 ques.add(q);
-                                z=0;
-                                FragmentManager fragmentManager=getSupportFragmentManager();
-                                Fragment fragment=QuestionsFragment.newInstance(z);
-                                FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
-                                fragmentTransaction.replace(R.id.container,fragment);
-                                fragmentTransaction.addToBackStack(null);
-                                fragmentTransaction.commit();
-                                next.setOnClickListener(new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View v) {
-                                        z++;
-                                        FragmentManager fragmentManager=getSupportFragmentManager();
-                                        Fragment fragment=QuestionsFragment.newInstance(z);
-                                        FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
-                                        fragmentTransaction.replace(R.id.container,fragment);
-                                        fragmentTransaction.addToBackStack(null);
-                                        fragmentTransaction.commit();
-                                    }
-                                });
                             }
                         } catch (JSONException e) {
                             Log.d("mes",e.getMessage());
