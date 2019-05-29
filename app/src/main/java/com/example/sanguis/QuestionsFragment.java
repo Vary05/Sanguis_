@@ -6,6 +6,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -14,6 +18,10 @@ import android.view.ViewGroup;
 public class QuestionsFragment extends Fragment {
 
     private int pageNumber;
+    private List<Question> list;
+    private Question question;
+    private TextView ques;
+    private TextView explanation;
 
     public static QuestionsFragment newInstance(int page) {
         QuestionsFragment fragment = new QuestionsFragment();
@@ -29,6 +37,9 @@ public class QuestionsFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         pageNumber = getArguments() != null ? getArguments().getInt("num") : 1;
+        list=new ArrayList<>();
+        list=QuestionLab.get(getActivity()).getCrimes();
+        question=list.get(pageNumber);
     }
 
     @Override
@@ -36,7 +47,10 @@ public class QuestionsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v= inflater.inflate(R.layout.fragment_questions, container, false);
-
+            ques=v.findViewById(R.id.question);
+            explanation=v.findViewById(R.id.explanation);
+            ques.setText(question.getQuestion());
+            explanation.setText(question.getExplanation());
         return v;
     }
 

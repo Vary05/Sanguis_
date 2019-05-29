@@ -60,10 +60,38 @@ public class Main2Activity extends AppCompatActivity {
                             JSONArray ob = new JSONArray(res);
                             Gson gson=new Gson();
                             for (int i=0;i<ob.length();i++) {
-                                String f=ob.get(i).toString();
+                                String f = ob.get(i).toString();
                                 Question q = gson.fromJson(f, Question.class);
                                 ques.add(q);
                             }
+                                QuestionLab.get(getApplicationContext()).AddHouses(ques);
+                                z=0;
+                                FragmentManager fragmentManager=getSupportFragmentManager();
+                                Fragment fragment=QuestionsFragment.newInstance(z);
+                                FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
+                                fragmentTransaction.replace(R.id.container,fragment);
+                                fragmentTransaction.addToBackStack(null);
+                                fragmentTransaction.commit();
+                                next.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        if(z<ques.size()-1)
+                                        {
+                                            z++;
+                                            FragmentManager fragmentManager = getSupportFragmentManager();
+                                            Fragment fragment = QuestionsFragment.newInstance(z);
+                                            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                                            fragmentTransaction.replace(R.id.container, fragment);
+                                            fragmentTransaction.addToBackStack(null);
+                                            fragmentTransaction.commit();
+                                        }
+                                        else
+                                        {
+                                            next.setVisibility(View.GONE);
+                                        }
+
+                                    }
+                                });
                         } catch (JSONException e) {
                             Log.d("mes",e.getMessage());
 
