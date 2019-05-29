@@ -61,6 +61,7 @@ public class LoginActivity extends AppCompatActivity{
     private TextView reg;
     public Button login;
     private Button register;
+    private SessionManager session;
 
 
     @Override
@@ -125,7 +126,13 @@ public class LoginActivity extends AppCompatActivity{
 
             }
         });
-
+        session = new SessionManager(getApplicationContext());
+        if (session.isLoggedIn()) {
+            // User is already logged in. Take him to main activity
+            Intent intent = new Intent(LoginActivity.this, Main2Activity.class);
+            startActivity(intent);
+            finish();
+        }
 
     }
 
@@ -202,6 +209,7 @@ public class LoginActivity extends AppCompatActivity{
             @Override
             public void onResponse(Call<Result> call, Response<Result> response) {
                 if (response.body().getError()==false){finish();
+                    session.setLogin(true);
                     Intent intent=new Intent(getApplicationContext(),Main2Activity.class);
                     startActivity(intent);
                 }

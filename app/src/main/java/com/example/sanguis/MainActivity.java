@@ -2,6 +2,7 @@ package com.example.sanguis;
 
 import android.content.Intent;
 import android.media.Image;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -19,15 +20,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         ImageView text=(ImageView)findViewById(R.id.text);
-        Button next=(Button)findViewById(R.id.next);
+        new Handler().postDelayed(new Runnable() {
 
-        next.setOnClickListener(new View.OnClickListener() {
+
             @Override
-            public void onClick(View v) {
-
-                Intent intent=new Intent (MainActivity.this, LoginActivity.class);
-                startActivity(intent);
+            public void run() {
+                // This method will be executed once the timer is over
+                Intent i = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(i);
+                finish();
             }
-        });
+        }, 5000);
+
     }
 }
