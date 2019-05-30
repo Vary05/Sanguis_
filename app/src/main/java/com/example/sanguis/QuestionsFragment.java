@@ -1,11 +1,15 @@
 package com.example.sanguis;
 
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -22,6 +26,7 @@ public class QuestionsFragment extends Fragment {
     private Question question;
     private TextView ques;
     private TextView explanation;
+    private int wrong;
 
     public static QuestionsFragment newInstance(int page) {
         QuestionsFragment fragment = new QuestionsFragment();
@@ -49,6 +54,25 @@ public class QuestionsFragment extends Fragment {
         View v= inflater.inflate(R.layout.fragment_questions, container, false);
             ques=v.findViewById(R.id.question);
             explanation=v.findViewById(R.id.explanation);
+        explanation.setVisibility(View.GONE);
+        LinearLayout linearLayout=v.findViewById(R.id.linear);
+        RadioGroup radioGroup=new RadioGroup(getActivity());
+        for (int i=0;i<question.getQues().size();i++)
+        {
+            final RadioButton radioButton=new RadioButton(getActivity());
+            radioButton.setText(question.getQues().get(i).getAnswers());
+            radioGroup.addView(radioButton);
+            wrong=question.getQues().get(i).getWrong();
+            radioButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (radioButton.isChecked()) {
+                        explanation.setVisibility(View.VISIBLE); }
+                }
+            } );
+        }
+        linearLayout.addView(radioGroup);
+
             ques.setText(question.getQuestion());
             explanation.setText(question.getExplanation());
         return v;

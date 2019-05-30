@@ -10,12 +10,26 @@
     <TextView
         android:id="@+id/question"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="36dp"
+        android:textColor="#FFFFFF"
+        android:textSize="35sp" />
+
+    <LinearLayout
+        android:id="@+id/linear"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-         />
-    <TextView
-        android:layout_height="match_parent"
-        android:layout_width="wrap_content"
-        android:id="@+id/explanation"
-        />
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="-16dp"
+        tools:layout_editor_absoluteY="19dp">
+        <TextView
+            android:id="@+id/explanation"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            tools:layout_editor_absoluteX="8dp" />
+
+    </LinearLayout>
+
 
 </LinearLayout>
