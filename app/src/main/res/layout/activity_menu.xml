@@ -1,50 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Menu"
-    android:background="#751111">
+    android:background="#751111"
+    android:orientation="horizontal">
 
     <Button
         android:id="@+id/testfirst"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:layout_marginTop="128dp"
+        android:layout_marginTop="20dp"
         android:background="#d36e70"
-        android:text="Что я здаю о донорстве крови?"
-        android:textSize="20sp"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="0dp" />
+        android:text="Что я знаю о донорстве крови?"
+        android:textSize="20sp" />
+
 
     <Button
         android:id="@+id/testsecond"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:layout_marginTop="52dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="140dp"
         android:background="#d36e70"
         android:text="Смогу ли я быть донором?"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/food"
-        app:layout_constraintTop_toBottomOf="@+id/testfirst"
-        app:layout_constraintVertical_bias="1.0"
-        tools:layout_editor_absoluteX="-16dp" />
+        android:textSize="20sp" />
+
 
     <Button
         android:id="@+id/live"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="260dp"
         android:background="#d36e70"
-        android:text="Образжизни донора"
+        android:text="Образ жизни донора"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/food"
-        app:layout_constraintVertical_bias="0.305"
-        tools:layout_editor_absoluteX="16dp" />
+        />
 
     <Button
         android:id="@+id/food"
@@ -53,8 +45,6 @@
         android:layout_marginTop="384dp"
         android:background="#d36e70"
         android:text="РАЦИОН ДОНОРА"
-        android:textSize="20sp"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="-16dp" />
+        android:textSize="20sp" />
 
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>
