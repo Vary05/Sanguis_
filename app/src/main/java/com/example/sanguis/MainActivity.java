@@ -8,10 +8,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ImageView text;
+    private TextView text;
     private Button next;
 
     @Override
@@ -19,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ImageView text=(ImageView)findViewById(R.id.text);
+        TextView text=(TextView)findViewById(R.id.text);
         new Handler().postDelayed(new Runnable() {
 
 

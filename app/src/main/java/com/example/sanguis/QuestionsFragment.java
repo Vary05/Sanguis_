@@ -60,6 +60,7 @@ public class QuestionsFragment extends Fragment {
         for (int i=0;i<question.getQues().size();i++)
         {
             final RadioButton radioButton=new RadioButton(getActivity());
+            if(question.getTstnbr()==1){
             radioButton.setText(question.getQues().get(i).getAnswers());
             radioGroup.addView(radioButton);
             wrong=question.getQues().get(i).getWrong();
@@ -69,7 +70,7 @@ public class QuestionsFragment extends Fragment {
                     if (radioButton.isChecked()) {
                         explanation.setVisibility(View.VISIBLE); }
                 }
-            } );
+            } );}
         }
         linearLayout.addView(radioGroup);
 
